@@ -1,0 +1,18 @@
+
+**Admin Login**
+
+Email	: admin@mail.com
+Password: admin
+
+**kasir Login**
+
+Email	: kasir@gmail.com
+Password: kasir
+
+**pelanggan login**
+
+Email	: farhan@gmail.com
+Password: farhan
+
+
+
