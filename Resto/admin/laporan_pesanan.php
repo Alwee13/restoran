@@ -18,7 +18,7 @@ require_once('partials/_head.php');
         require_once('partials/_topnav.php');
         ?>
         <!-- Header -->
-        <div style="background-image: url(assets/img/theme/bg.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+        <div style="background-image: url(../admin/assets/img/theme/bg.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
         <span class="mask bg-gradient-dark opacity-8"></span>
             <div class="container-fluid">
                 <div class="header-body">
@@ -40,12 +40,12 @@ require_once('partials/_head.php');
                                     <tr>
                                         <th class="text-success" scope="col">Kode</th>
                                         <th scope="col">Pelanggan</th>
-                                        <th class="text-success" scope="col">Produk</th>
+                                        <th class="text-success" scope="col">Menu</th>
                                         <th scope="col">Harga Satuan</th>
                                         <th class="text-success" scope="col">#</th>
                                         <th scope="col">Total Harga</th>
                                         <th scop="col">Status</th>
-                                        <th scope="col">Tanggal</th>
+                                        <th class="text-success" scope="col">Tanggal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,7 +70,7 @@ require_once('partials/_head.php');
                                                 } else {
                                                     echo "<span class='badge badge-success'>$order->status_pesanan</span>";
                                                 } ?></td>
-                                            <td><?php echo date('d/M/Y g:i', strtotime($order->created_at)); ?></td>
+                                            <td class="text-success"><?php echo date('d/M/Y g:i', strtotime($order->created_at)); ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
