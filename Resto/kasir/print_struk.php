@@ -104,7 +104,7 @@ while ($order = $res->fetch_object()) {
                                     </td>
                                     <td class="text-center">
                                         <p>
-                                            <strong>$<?php echo $total; ?></strong>
+                                            <strong>Rp.<?php echo $total; ?></strong>
                                         </p>
                                         <p>
                                             <strong>5%</strong>
