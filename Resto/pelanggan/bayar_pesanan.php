@@ -105,8 +105,8 @@ require_once('partials/_head.php');
                     <input type="text" name="id_pembayaran" readonly value="<?php echo $payid;?>" class="form-control">
                   </div>
                   <div class="col-md-6">
-                    <label>Kode Pembayaran</label><small class="text-danger"> Ketik 10 Digit Kode Bebas</small>
-                    <input type="text" limit="11" name="kode_pembayaran" placeholder="<?php echo $mpesaCode; ?>" class="form-control" value="">
+                    <label>Kode Pembayaran</label>
+                    <input type="text" name="kode_pembayaran" readonly value="<?php echo $mpesaCode; ?>" class="form-control" value="">
                   </div>
                 </div>
                 <hr>

@@ -90,7 +90,7 @@ require_once('partials/_head.php');
                   </div>
                   <div class="col-md-6">
                     <label>Kode Pembayaran</label>
-                    <input type="text" name="kode_pembayaran" value="<?php echo $mpesaCode; ?>" class="form-control" value="">
+                    <input type="text" name="kode_pembayaran" readonly value="<?php echo $mpesaCode; ?>" class="form-control" value="">
                   </div>
                 </div>
                 <hr>
