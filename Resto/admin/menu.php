@@ -3,19 +3,21 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
+
 if (isset($_GET['delete'])) {
   $id = intval($_GET['delete']);
-  $adn = "DELETE FROM  menu  WHERE  id_menu = ?";
+  $adn = "DELETE FROM menu WHERE id_menu = ?";
   $stmt = $mysqli->prepare($adn);
-  $stmt->bind_param('s', $id);
-  $stmt->execute();
-  $stmt->close();
-  if ($stmt) {
-    $success = "Terhapus" && header("refresh:1; url=menu.php");
+  $stmt->bind_param('i', $id); // Gunakan 'i' untuk tipe data integer
+  if ($stmt->execute()) {
+    $success = "Terhapus";
+    header("refresh:1; url=menu.php");
   } else {
     $err = "Coba Lagi Nanti";
   }
+  $stmt->close();
 }
+
 require_once('partials/_head.php');
 ?>
 
@@ -32,7 +34,7 @@ require_once('partials/_head.php');
     ?>
     <!-- Header -->
     <div style="background-image: url(assets/img/theme/bg.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
+      <span class="mask bg-gradient-dark opacity-8"></span>
       <div class="container-fluid">
         <div class="header-body">
         </div>
@@ -63,7 +65,7 @@ require_once('partials/_head.php');
                 </thead>
                 <tbody>
                   <?php
-                  $ret = "SELECT * FROM  menu ";
+                  $ret = "SELECT * FROM menu";
                   $stmt = $mysqli->prepare($ret);
                   $stmt->execute();
                   $res = $stmt->get_result();
@@ -73,11 +75,10 @@ require_once('partials/_head.php');
                       <td>
                         <?php
                         if ($prod->gambar_menu) {
-                          echo "<img src='assets/img/menu/$prod->gambar_menu' height='60' width='60 class='img-thumbnail'>";
+                          echo "<img src='assets/img/menu/$prod->gambar_menu' height='60' width='60' class='img-thumbnail'>";
                         } else {
-                          echo "<img src='assets/img/menu/default.jpg' height='60' width='60 class='img-thumbnail'>";
+                          echo "<img src='assets/img/menu/default.jpg' height='60' width='60' class='img-thumbnail'>";
                         }
-
                         ?>
                       </td>
                       <td><?php echo $prod->kode_menu; ?></td>
@@ -90,7 +91,6 @@ require_once('partials/_head.php');
                             Hapus
                           </button>
                         </a>
-
                         <a href="perbarui_menu.php?update=<?php echo $prod->id_menu; ?>">
                           <button class="btn btn-sm btn-primary">
                             <i class="fas fa-edit"></i>

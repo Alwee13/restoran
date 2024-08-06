@@ -77,6 +77,7 @@
 			
                 <a href="Resto/admin/">Admin Log In</a>
                 <a href="Resto/kasir/">Kasir Log In</a>
+                <a href="Resto/koki/">koki Log In</a>
                 <a href="Resto/pelanggan">Pelanggan Log In</a>
             </div>
         </div>

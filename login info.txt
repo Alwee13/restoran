@@ -14,5 +14,9 @@ Password: kasir
 Email	: farhan@gmail.com
 Password: farhan
 
+**koki login**
+
+Email	: koki@gmail.com
+Password: koki123
 
 

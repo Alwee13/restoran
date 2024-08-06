@@ -39,6 +39,8 @@ $stmt->execute();
 $res = $stmt->get_result();
 while ($order = $res->fetch_object()) {
     $total = ($order->harga_menu * $order->jumlah_menu);
+    $pajak = 0.05 * $total; // Hitung pajak 2%
+    $total_setelah_pajak = $total + $pajak;
 
 ?>
 
@@ -116,7 +118,7 @@ while ($order = $res->fetch_object()) {
                                         <h4><strong>Total: </strong></h4>
                                     </td>
                                     <td class="text-center text-danger">
-                                        <h4><strong>$<?php echo $total; ?></strong></h4>
+                                        <h4><strong>$<?php echo $total_setelah_pajak ?></strong></h4>
                                     </td>
                                 </tr>
                             </tbody>
