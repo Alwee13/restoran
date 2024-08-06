@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2024 at 04:03 AM
+-- Generation Time: Aug 06, 2024 at 01:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -64,6 +64,27 @@ INSERT INTO `kasir` (`id_kasir`, `nama_kasir`, `nomor_kasir`, `email_kasir`, `pa
 (4, 'panji', 'PYSR-3278', 'panji@gmail.com', 'a9a4c7ffaddade64bcac179e6537f026dc0a0c0a', '2024-07-31 10:34:52.769338'),
 (5, 'kasir', 'UWYM-8579', 'kasir@gmail.com', '22a44e2ff721590111588f73cbb865dd8079d9ab', '2024-07-31 18:17:46.755473'),
 (8, 'wawi', 'EVCH-9123', 'wawi@gmail.com', '09093be7fc53dede9d34941e8277fe61abb27beb', '2024-08-01 08:09:21.950766');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `koki`
+--
+
+CREATE TABLE `koki` (
+  `id_koki` int(10) NOT NULL,
+  `nama_koki` varchar(50) NOT NULL,
+  `nomor_koki` int(15) NOT NULL,
+  `email_koki` varchar(50) NOT NULL,
+  `password_koki` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `koki`
+--
+
+INSERT INTO `koki` (`id_koki`, `nama_koki`, `nomor_koki`, `email_koki`, `password_koki`) VALUES
+(1, 'Tsubasa Ozora', 69696969, 'koki@gmail.com', '36660668d1e0e0decf1e18f04bbb3f3c1dc1b834');
 
 -- --------------------------------------------------------
 
@@ -130,6 +151,13 @@ CREATE TABLE `pembayaran` (
   `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `kode_pembayaran`, `kode_pesanan`, `id_pelanggan`, `harga_pembayaran`, `metode_pembayaran`, `created_at`) VALUES
+('f62bec', 'qwertyuiop', 'DAGE-8360', 'ce12b86a9ae4', '20000', 'Tunai', '2024-08-06 10:58:02.080560');
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +177,13 @@ CREATE TABLE `pesanan` (
   `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `status_menu` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id_pesanan`, `kode_pesanan`, `id_pelanggan`, `nama_pelanggan`, `id_menu`, `nama_menu`, `harga_menu`, `jumlah_menu`, `status_pesanan`, `created_at`, `status_menu`) VALUES
+('ba673fe88b', 'DAGE-8360', 'ce12b86a9ae4', 'farhan', '89beaac6fa', 'Ocha', '10000', '2', 'Sudah Bayar', '2024-08-06 11:04:39.119070', 'selesai');
 
 -- --------------------------------------------------------
 
@@ -187,6 +222,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `kasir`
   ADD PRIMARY KEY (`id_kasir`);
+
+--
+-- Indexes for table `koki`
+--
+ALTER TABLE `koki`
+  ADD PRIMARY KEY (`id_koki`);
 
 --
 -- Indexes for table `menu`
