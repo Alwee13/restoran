@@ -45,6 +45,7 @@ require_once('partials/_head.php');
                                         <th class="text-success" scope="col">#</th>
                                         <th scope="col">Total Harga</th>
                                         <th scop="col">Status</th>
+                                        <th scop="col">Status Menu</th>
                                         <th class="text-success" scope="col">Tanggal</th>
                                     </tr>
                                 </thead>
@@ -70,6 +71,13 @@ require_once('partials/_head.php');
                                                     echo "<span class='badge badge-danger'>Belum Bayar</span>";
                                                 } else {
                                                     echo "<span class='badge badge-success'>$order->status_pesanan</span>";
+                                                } ?></td>
+                                            <td><?php if ($order->status_menu == '') {
+                                                    echo "<span class='badge badge-warning'>Tunggu</span>";
+                                                } elseif ($order->status_menu == 'dibuat') {
+                                                    echo "<span class='badge badge-primary'>Sedang Dibuat</span>";
+                                                } elseif ($order->status_menu == 'selesai') {
+                                                    echo "<span class='badge badge-success'>Siap Dihidangkan</span>";
                                                 } ?></td>
                                             <td class="text-success"><?php echo date('d/M/Y g:i', strtotime($order->created_at)); ?></td>
                                         </tr>

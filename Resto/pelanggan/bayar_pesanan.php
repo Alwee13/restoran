@@ -9,7 +9,7 @@ check_login();
 if (isset($_POST['pay'])) {
   //Prevent Posting Blank Values
   if (empty($_POST["kode_pembayaran"]) || empty($_POST["harga_pembayaran"]) || empty($_POST['metode_pembayaran'])) {
-    $err = "Blank Values Not Accepted";
+    $err = "Harus Di isi";
     //Perform Regex On Payments
     
   } else {
@@ -18,11 +18,11 @@ if (isset($_POST['pay'])) {
 
       if(strlen($kode_pembayaran) < 10 )
       {
-        $err = "Payment Code Verification Failed, Please Try Again";
+        $err = "Verifikasi Kode Pembayaran Gagal, Silakan Coba Lagi";
       }
       elseif(strlen($kode_pembayaran) > 10)
       {
-        $err = "Payment Code Verification Failed, Please Try Again";
+        $err = "Verifikasi Kode Pembayaran Gagal, Silakan Coba Lagi";
       }
       
       else
@@ -105,14 +105,14 @@ require_once('partials/_head.php');
                     <input type="text" name="id_pembayaran" readonly value="<?php echo $payid;?>" class="form-control">
                   </div>
                   <div class="col-md-6">
-                    <label>Kode Pembayaran</label><small class="text-danger"> Ketik 10 Digit Kode Alfabet Jika Metode Pembayaran Tunai</small>
+                    <label>Kode Pembayaran</label><small class="text-danger"> Ketik 10 Digit Kode Bebas</small>
                     <input type="text" limit="11" name="kode_pembayaran" placeholder="<?php echo $mpesaCode; ?>" class="form-control" value="">
                   </div>
                 </div>
                 <hr>
                 <div class="form-row">
                   <div class="col-md-6">
-                    <label>Jumlah ($)</label>
+                    <label>Jumlah (Rp.)</label>
                     <input type="text" name="harga_pembayaran" readonly value="<?php echo $total;?>" class="form-control">
                   </div>
                   <div class="col-md-6">
@@ -126,7 +126,7 @@ require_once('partials/_head.php');
                 <br>
                 <div class="form-row">
                   <div class="col-md-6">
-                    <input type="submit" name="pay" value="Pay Order" class="btn btn-success" value="">
+                    <input type="submit" name="pay" value="Bayar Pesanan" class="btn btn-success" value="">
                   </div>
                 </div>
               </form>

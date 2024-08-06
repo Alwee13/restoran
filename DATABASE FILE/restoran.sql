@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2024 at 07:44 AM
+-- Generation Time: Aug 06, 2024 at 01:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,10 +61,30 @@ CREATE TABLE `kasir` (
 --
 
 INSERT INTO `kasir` (`id_kasir`, `nama_kasir`, `nomor_kasir`, `email_kasir`, `password_kasir`, `created_at`) VALUES
-(3, 'Rafi A Saputra', 'BDSX-2596', 'rafi.alwisaputra@gmail.com', 'rafi', '2024-08-01 07:38:40.762867'),
 (4, 'panji', 'PYSR-3278', 'panji@gmail.com', 'a9a4c7ffaddade64bcac179e6537f026dc0a0c0a', '2024-07-31 10:34:52.769338'),
 (5, 'kasir', 'UWYM-8579', 'kasir@gmail.com', '22a44e2ff721590111588f73cbb865dd8079d9ab', '2024-07-31 18:17:46.755473'),
 (8, 'wawi', 'EVCH-9123', 'wawi@gmail.com', '09093be7fc53dede9d34941e8277fe61abb27beb', '2024-08-01 08:09:21.950766');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `koki`
+--
+
+CREATE TABLE `koki` (
+  `id_koki` int(10) NOT NULL,
+  `nama_koki` varchar(50) NOT NULL,
+  `nomor_koki` int(15) NOT NULL,
+  `email_koki` varchar(50) NOT NULL,
+  `password_koki` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `koki`
+--
+
+INSERT INTO `koki` (`id_koki`, `nama_koki`, `nomor_koki`, `email_koki`, `password_koki`) VALUES
+(1, 'Tsubasa Ozora', 69696969, 'koki@gmail.com', '36660668d1e0e0decf1e18f04bbb3f3c1dc1b834');
 
 -- --------------------------------------------------------
 
@@ -87,8 +107,8 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `kode_menu`, `nama_menu`, `gambar_menu`, `deskripsi_menu`, `harga_menu`, `created_at`) VALUES
-('037a74b4fb', 'NXSA-8594', 'Ocha', 'OCHA.jpg', 'Ocha, atau teh hijau Jepang, adalah minuman tradisional yang terkenal akan kesegarannya dan manfaat kesehatannya. Terbuat dari daun teh hijau yang diproses dengan hati-hati untuk mempertahankan kandungan antioksidannya, ocha memiliki rasa yang ringan, segar, dan sedikit pahit dengan aroma herbal yang menenangkan. Minuman ini tidak hanya menyegarkan tetapi juga dikenal untuk membantu pencernaan, meningkatkan metabolisme, dan memberikan energi alami tanpa kafein yang berlebihan. Cocok dinikmati hangat atau dingin, ocha adalah pilihan sempurna untuk mereka yang mencari minuman sehat dan alami.', '10000', '2024-08-01 08:40:27.484267'),
-('347d9dadde', 'NDSU-1823', 'Takoyaki', 'TAKOYAKI.jpg', 'Takoyaki adalah camilan jalanan khas Jepang yang sangat populer, berbentuk bola-bola kecil dari adonan tepung yang diisi dengan potongan gurita (tako), daun bawang, dan jahe merah acar. Bola-bola ini dimasak dalam cetakan khusus berbentuk setengah lingkaran dan diputar dengan tusuk sate hingga matang sempurna dan berwarna keemasan.\r\n\r\nTakoyaki biasanya disajikan panas dengan taburan saus takoyaki manis, mayones, serpihan ikan bonito kering (katsuobushi), dan rumput laut kering (aonori). Dengan tekstur luar yang renyah dan isi yang lembut dan gurih, takoyaki menawarkan kombinasi rasa dan tekstur yang memanjakan lidah, menjadikannya favorit di festival, pasar malam, dan restoran Jepang di seluruh dunia.', '10000', '2024-08-01 08:41:52.366313'),
+('89beaac6fa', 'XQPW-4873', 'Ocha', 'OCHA.jpg', 'afafa', '10000', '2024-08-03 14:50:45.210570'),
+('a986a59b10', 'MVCS-3492', 'Blue Ocean', 'BLUE-OCEAN.jpg', 'afafafaefafafafafa', '20000', '2024-08-02 11:53:23.020829'),
 ('cede744f49', 'JKLU-7109', 'Unagi Shrimp Roll ', 'unagi.jpg', 'unagiiiiiiii', '50000', '2024-08-01 07:44:11.569140');
 
 -- --------------------------------------------------------
@@ -112,8 +132,8 @@ CREATE TABLE `pelanggan` (
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `no_telp`, `email_pelanggan`, `password_pelanggan`, `created_at`) VALUES
 ('01cbcbd56ea3', 'aaaa', '44444', 'adada@gmail.com', 'fe703d258c7ef5f50b71e06565a65aa07194907f', '2024-08-01 07:14:51.523116'),
-('1191a8f99843', 'farhan', '0000000', 'farhan@gmail.com', 'e51b930fb38ca4a1ab1139ac7d8e9dd5bdf9eb14', '2024-08-01 07:39:11.488660'),
-('b24f9b0cbc0a', 'Rafi Alwi', '8395835', 'rafi@gmail.com', '8fdef279bfdc4377b3f433b6304528bd5f4e06f1', '2024-07-30 14:32:14.163885');
+('b24f9b0cbc0a', 'Rafi Alwi', '8395835', 'rafi@gmail.com', '8fdef279bfdc4377b3f433b6304528bd5f4e06f1', '2024-07-30 14:32:14.163885'),
+('ce12b86a9ae4', 'farhan', '0000000', 'farhan@gmail.com', 'e51b930fb38ca4a1ab1139ac7d8e9dd5bdf9eb14', '2024-08-03 14:38:25.407549');
 
 -- --------------------------------------------------------
 
@@ -123,7 +143,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `no_telp`, `email_pel
 
 CREATE TABLE `pembayaran` (
   `id_pembayaran` varchar(200) NOT NULL,
-  `kode_pembayaran` varchar(200) NOT NULL,
+  `kode_pembayaran` varchar(200) DEFAULT NULL,
   `kode_pesanan` varchar(200) NOT NULL,
   `id_pelanggan` varchar(200) NOT NULL,
   `harga_pembayaran` varchar(200) NOT NULL,
@@ -136,8 +156,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `kode_pembayaran`, `kode_pesanan`, `id_pelanggan`, `harga_pembayaran`, `metode_pembayaran`, `created_at`) VALUES
-('07058e', 'DI4QYG3RK2', 'ZSJM-8725', '01cbcbd56ea3', '20000', 'Tunai', '2024-08-02 05:38:45.190012'),
-('f1eed7', '6CMJBU93IY', 'ZLRN-9538', '01cbcbd56ea3', '20000', 'Tunai', '2024-08-01 07:30:46.563930');
+('f62bec', 'qwertyuiop', 'DAGE-8360', 'ce12b86a9ae4', '20000', 'Tunai', '2024-08-06 10:58:02.080560');
 
 -- --------------------------------------------------------
 
@@ -155,15 +174,16 @@ CREATE TABLE `pesanan` (
   `harga_menu` varchar(200) NOT NULL,
   `jumlah_menu` varchar(200) NOT NULL,
   `status_pesanan` varchar(200) NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
+  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `status_menu` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pesanan`
 --
 
-INSERT INTO `pesanan` (`id_pesanan`, `kode_pesanan`, `id_pelanggan`, `nama_pelanggan`, `id_menu`, `nama_menu`, `harga_menu`, `jumlah_menu`, `status_pesanan`, `created_at`) VALUES
-('d8e750d4a8', 'ZSJM-8725', '01cbcbd56ea3', 'aaaa', '037a74b4fb', 'Ocha', '10000', '2', 'Sudah Bayar', '2024-08-02 05:38:45.193358');
+INSERT INTO `pesanan` (`id_pesanan`, `kode_pesanan`, `id_pelanggan`, `nama_pelanggan`, `id_menu`, `nama_menu`, `harga_menu`, `jumlah_menu`, `status_pesanan`, `created_at`, `status_menu`) VALUES
+('ba673fe88b', 'DAGE-8360', 'ce12b86a9ae4', 'farhan', '89beaac6fa', 'Ocha', '10000', '2', 'Sudah Bayar', '2024-08-06 11:04:39.119070', 'selesai');
 
 -- --------------------------------------------------------
 
@@ -202,6 +222,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `kasir`
   ADD PRIMARY KEY (`id_kasir`);
+
+--
+-- Indexes for table `koki`
+--
+ALTER TABLE `koki`
+  ADD PRIMARY KEY (`id_koki`);
 
 --
 -- Indexes for table `menu`

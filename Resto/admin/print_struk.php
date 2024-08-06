@@ -39,6 +39,8 @@ $stmt->execute();
 $res = $stmt->get_result();
 while ($order = $res->fetch_object()) {
     $total = ($order->harga_menu * $order->jumlah_menu);
+    $pajak = 0.05 * $total; // Hitung pajak 2%
+    $total_setelah_pajak = $total + $pajak;
 
 ?>
 
@@ -86,8 +88,8 @@ while ($order = $res->fetch_object()) {
                                     <td class="col-md-9"><em> <?php echo $order->nama_menu; ?> </em></h4>
                                     </td>
                                     <td class="col-md-1" style="text-align: center"> <?php echo $order->jumlah_menu; ?></td>
-                                    <td class="col-md-1 text-center">$<?php echo $order->harga_menu; ?></td>
-                                    <td class="col-md-1 text-center">$<?php echo $total; ?></td>
+                                    <td class="col-md-1 text-center">Rp.<?php echo $order->harga_menu; ?></td>
+                                    <td class="col-md-1 text-center">Rp.<?php echo $total; ?></td>
                                 </tr>
                                 <tr>
                                     <td>   </td>
@@ -102,7 +104,7 @@ while ($order = $res->fetch_object()) {
                                     </td>
                                     <td class="text-center">
                                         <p>
-                                            <strong>$<?php echo $total; ?></strong>
+                                            <strong>Rp.<?php echo $total; ?></strong>
                                         </p>
                                         <p>
                                             <strong>2%</strong>
@@ -116,7 +118,7 @@ while ($order = $res->fetch_object()) {
                                         <h4><strong>Total: </strong></h4>
                                     </td>
                                     <td class="text-center text-danger">
-                                        <h4><strong>$<?php echo $total; ?></strong></h4>
+                                        <h4><strong>Rp.<?php echo $total_setelah_pajak ?></strong></h4>
                                     </td>
                                 </tr>
                             </tbody>
