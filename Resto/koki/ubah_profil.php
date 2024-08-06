@@ -5,13 +5,13 @@ include('config/checklogin.php');
 check_login();
 //Update Profile
 if (isset($_POST['ChangeProfile'])) {
-    $id_kasir = $_SESSION['id_kasir'];
-    $nama_kasir = $_POST['nama_kasir'];
-    $email_kasir = $_POST['email_kasir'];
-    $Qry = "UPDATE kasir SET nama_kasir =?, email_kasir =? WHERE id_kasir =?";
+    $id_koki = $_SESSION['id_koki'];
+    $nama_koki = $_POST['nama_koki'];
+    $email_koki = $_POST['email_koki'];
+    $Qry = "UPDATE koki SET nama_koki =?, email_koki =? WHERE id_koki =?";
     $postStmt = $mysqli->prepare($Qry);
     //bind paramaters
-    $rc = $postStmt->bind_param('ssi', $nama_kasir, $email_kasir, $id_kasir);
+    $rc = $postStmt->bind_param('ssi', $nama_koki, $email_koki, $id_koki);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {
@@ -44,12 +44,12 @@ if (isset($_POST['changePassword'])) {
     }
 
     if (!$error) {
-        $id_kasir = $_SESSION['id_kasir'];
-        $sql = "SELECT * FROM kasir   WHERE id_kasir = '$id_kasir'";
+        $id_koki = $_SESSION['id_koki'];
+        $sql = "SELECT * FROM koki   WHERE id_koki = '$id_koki'";
         $res = mysqli_query($mysqli, $sql);
         if (mysqli_num_rows($res) > 0) {
             $row = mysqli_fetch_assoc($res);
-            if ($old_password != $row['password_kasir']) {
+            if ($old_password != $row['password_koki']) {
                 $err =  "Please Enter Correct Old Password";
             } elseif ($new_password != $confirm_password) {
                 $err = "Confirmation Password Does Not Match";
@@ -57,10 +57,10 @@ if (isset($_POST['changePassword'])) {
 
                 $new_password  = sha1(md5($_POST['new_password']));
                 //Insert Captured information to a database table
-                $query = "UPDATE kasir SET  password_kasir =? WHERE id_kasir =?";
+                $query = "UPDATE koki SET  password_koki =? WHERE id_koki =?";
                 $stmt = $mysqli->prepare($query);
                 //bind paramaters
-                $rc = $stmt->bind_param('si', $new_password, $id_kasir);
+                $rc = $stmt->bind_param('si', $new_password, $id_koki);
                 $stmt->execute();
 
                 //declare a varible which will be passed to alert function
@@ -86,9 +86,9 @@ require_once('partials/_head.php');
         <!-- Top navbar -->
         <?php
         require_once('partials/_topnav.php');
-        $id_kasir = $_SESSION['id_kasir'];
+        $id_koki = $_SESSION['id_koki'];
         //$login_id = $_SESSION['login_id'];
-        $ret = "SELECT * FROM  kasir  WHERE id_kasir = '$id_kasir'";
+        $ret = "SELECT * FROM  koki  WHERE id_koki = '$id_koki'";
         $stmt = $mysqli->prepare($ret);
         $stmt->execute();
         $res = $stmt->get_result();
@@ -102,7 +102,7 @@ require_once('partials/_head.php');
                 <div class="container-fluid d-flex align-items-center">
                     <div class="row">
                         <div class="col-lg-7 col-md-10">
-                            <h1 class="display-2 text-white">Halo <?php echo $staff->nama_kasir; ?></h1>
+                            <h1 class="display-2 text-white">Halo <?php echo $staff->nama_koki; ?></h1>
                             <p class="text-white mt-0 mb-5">Ini adalah halaman profil Anda. Anda dapat menyesuaikan profil Anda sesuai keinginan dan juga mengubah kata sandi</p>
                         </div>
                     </div>
@@ -141,10 +141,10 @@ require_once('partials/_head.php');
                                 </div>
                                 <div class="text-center">
                                     <h3>
-                                        <?php echo $staff->nama_kasir; ?></span>
+                                        <?php echo $staff->nama_koki; ?></span>
                                     </h3>
                                     <div class="h5 font-weight-300">
-                                        <i class="ni location_pin mr-2"></i><?php echo $staff->email_kasir; ?>
+                                        <i class="ni location_pin mr-2"></i><?php echo $staff->email_koki; ?>
                                     </div>
                                 </div>
                             </div>
@@ -169,13 +169,13 @@ require_once('partials/_head.php');
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-username">Nama Pengguna</label>
-                                                    <input type="text" name="nama_kasir" value="<?php echo $staff->nama_kasir; ?>" id="input-username" class="form-control form-control-alternative" ">
+                                                    <input type="text" name="nama_koki" value="<?php echo $staff->nama_koki; ?>" id="input-username" class="form-control form-control-alternative" ">
                                                     </div>
                                                     </div>
                                                     <div class=" col-lg-6">
                                                     <div class="form-group">
                                                         <label class="form-control-label" for="input-email">Alamat Email</label>
-                                                        <input type="email" id="input-email" value="<?php echo $staff->email_kasir; ?>" name="email_kasir" class="form-control form-control-alternative">
+                                                        <input type="email" id="input-email" value="<?php echo $staff->email_koki; ?>" name="email_koki" class="form-control form-control-alternative">
                                                     </div>
                                                 </div>
 

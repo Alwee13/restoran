@@ -107,7 +107,7 @@ while ($order = $res->fetch_object()) {
                                             <strong>$<?php echo $total; ?></strong>
                                         </p>
                                         <p>
-                                            <strong>2%</strong>
+                                            <strong>5%</strong>
                                         </p>
                                     </td>
                                 </tr>
